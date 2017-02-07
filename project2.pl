@@ -23,6 +23,7 @@
     sumHelpers([L1|L2], N).
 
     sumHelpers([], 0).
+    sumHelpers([[]], 0).
 
     sumHelpers([L1|L2], N):-
     number(L1),
@@ -32,10 +33,10 @@
 
     sumHelpers([L1|L2], N):-
     atom(L1),
-    sumHelpers([L2|N]).
+    sumHelpers(L2,N).
 
     sumHelpers([L1|L2], N):-
-    sumHelper(L2|Sum),
+    sumHelpers(L2,Sum),
     N is L1 + Sum.
 
     sumHelpers([L1|L2],N):-
