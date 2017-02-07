@@ -63,3 +63,11 @@
     min-first-list([H, X|T], N):-
     H>X,
     min-first-list([X|T, N).
+
+    min-second-list([H1, J|T1], N):-
+    H1 =< J,
+    min-second-list([H1|T1], N).
+
+    min-second-list([H1, J|T1], N):-
+    H1>J,
+    min-second-list([J|T1], N).
