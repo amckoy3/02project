@@ -43,4 +43,14 @@
     \+number(L1),
     sumHelpers(L2, N).
 
+%3
+    min-above-min(L1,L2, N) :-
+    [H|T]=L1,
+    [H1|T1]=L2,
+    min-end([H|T], [H1,T1], N).
 
+    min-end([], [], N).
+
+    min-end([H|T], [H1|T1], N):-
+    min-end2(H, H1, N),
+    min-end(T, T1, N).
