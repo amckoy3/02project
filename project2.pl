@@ -17,6 +17,7 @@
 
 %2
  sum-up-numbers-general([],0).
+ sum-up-numbers-general([[]], 0).
  sum-up-numbers-general(L, N):-
     [L1|L2] = L,
     sumHelper([L1|L2], N).
@@ -28,6 +29,10 @@
     %N is L1 + Sum,
     sumHelper(L2, Sum),
     N is L1 + Sum.
+
+    sumHelper([L1|L2], N):-
+    atom(L1),
+    sumHelper([L2|N]).
 
     sumHelper([L1|L2],N):-
     \+number(L1),
