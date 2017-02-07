@@ -52,5 +52,11 @@
     min-end([], [], N).
 
     min-end([H|T], [H1|T1], N):-
-    min-end2(H, H1, N),
+    min-first-list([H|T], N),
     min-end(T, T1, N).
+
+    min-first-list([H|T], N):-
+    N is H,
+    H >= N,
+    N is H,
+    min-first-list(T, N).
