@@ -47,7 +47,15 @@
     min-above-min(L1,L2,N):-
     [H|T]=L1,
     [H1|T1]=L2,
-    min-end([H|T], [H1,T1], N).
+    append-list([H|T],[H1|T1], N).
+
+    append-list([H|T], [H1|T1], Result):-
+    number(H),
+    append([H|T], [H1|T1], Result).
+
+    append-list([H|T], [H1|T1], Result):-
+    \+number(H),
+    append(T, [H1|T1], N).
 
     min-first-list([L1Min], L1Min).
 
