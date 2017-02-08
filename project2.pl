@@ -87,3 +87,7 @@
     min-second-list([J|T1], N):-
     N>J,
     min-first-list(J,J).
+
+%3
+
+    common-unique-elements([],_,[]).
