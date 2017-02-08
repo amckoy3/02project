@@ -98,5 +98,8 @@
     
     common-unique([H|T], [_|T1], [H|N]):-
     member(T1, H),
-    common-unique(T, T1, N).
+    common-unique(T, T1, N) %is Head in second list.
+
+    common-unique([_|T], [_|T1], N):-
+    common-unique(T,T1,N).  %if head is not, return tail
 
