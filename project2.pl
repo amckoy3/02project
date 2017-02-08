@@ -95,4 +95,8 @@
     [H|T]=L1,
     [H1|T1]=L2,
     common-unique-elements([H|T], [H1|T1], [_|N]).
+    
+    common-unique([H|T], [_|T1], [H|N]):-
+    member(T1, H),
+    common-unique(T, T1, N).
 
