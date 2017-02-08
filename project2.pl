@@ -49,12 +49,14 @@
     [H1|T1]=L2,
     min-end([H|T], [H1,T1], N).
 
-    min-end([], [], N).
-    min-first-list([N], N).
+    min-first-list([L1Min], L1Min).
+
+    min-second-list(H1, N):-
+      min(H1, N).
 
     min-end([H|T], [H1|T1], N):-
     min-first-list([H|T], N),
-    min-end(T, T1, N).
+    min-second([H1|T1], N).
 
     min-first-list([H, X|T], N):-
     H =< X,
