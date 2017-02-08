@@ -44,15 +44,14 @@
     sumHelpers(L2, N).
 
 %3
-    min-above-min(L1,L2, N) :-
+    min-above-min(L1,L2,N):-
     [H|T]=L1,
     [H1|T1]=L2,
     min-end([H|T], [H1,T1], N).
 
     min-first-list([L1Min], L1Min).
 
-    min-second-list(H1, N):-
-      min(H1, N).
+    min-second-list(L2Min, L2Min).
 
     min-end([H|T], [H1|T1], N):-
     min-first-list([H|T], N),
@@ -72,4 +71,6 @@
 
     min-second-list([H1, J|T1], N):-
     H1>J,
-    min-second-list([J|T1], N).
+    min-second-list([J|T1], N):-
+    N>J,
+    min-first-list(N,N).
