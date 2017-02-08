@@ -88,6 +88,11 @@
     N>J,
     min-first-list(J,J).
 
-%3
+%4
 
     common-unique-elements([],_,[]).
+    common-unique-elements(L1,L2,N):-
+    [H|T]=L1,
+    [H1|T1]=L2,
+    common-unique-elements([H|T], [H1|T1], [_|N]).
+
