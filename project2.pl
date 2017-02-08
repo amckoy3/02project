@@ -97,8 +97,12 @@
     common-unique-elements([H|T], [H1|T1], [_|N]).
     
     common-unique([H|T], [_|T1], [H|N]):-
-    member(T1, H),
-    common-unique(T, T1, N) %is Head in second list.
+    member(T1, H),!, common-unique(T, T1, N), %is Head in second list.
+    member([H|_], H).
+
+    member([_|T], H):-
+    member(T,H).
+
 
     common-unique([_|T], [_|T1], N):-
     common-unique(T,T1,N).  %if head is not, return tail
